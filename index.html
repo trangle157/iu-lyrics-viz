@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Visualizing Korean lyrics by singer IU
+    </title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://genius.codes"></script>
+</head>
+
+<body>
+    <h1>UI for IU - Visualizing data for English-translated Korean lyrics by singer IU</h1>
+
+    <!-- <div id="rectangle" style="width:200px; height:100px; border:1px solid black;">Hellooo</div> -->
+
+    <!-- try out selecting -->
+    <div id="tryoutDiv"></div>
+</body>
+
+<script>
+    let someData = [1, 2, 24, 16, 5]
+
+    //smollerData = someData.filter((el) => { return el <= 10 })
+
+    //console.log(smollerData)
+
+    let someColors = ["blue", "red", "green", "violet"]
+
+
+    d3.select("body").selectAll("div")
+        .data(someData)
+        .enter()
+        .append("div")
+        .html((d) => d)
+        .append("span")
+        .html("Even More")
+        .append("circle")
+        .attr("cx", (d) => d)
+        .style("color", "red")
+</script>
+
+</html>
