@@ -2,6 +2,8 @@
 //import express from 'express';
 //import OAuth2Strategy from 'passport-oauth2/lib';
 
+//const { AuthorizationError } = require("passport-oauth2/lib");
+
 /* use(new OAuth2Strategy({
     authorizationURL: 'https://api.genius.com/oauth/authorize',
     tokenURL: 'https://api.genius.com/oauth/token',
@@ -21,5 +23,23 @@
  */
 //console.log("passport", passport);
 
-const bearer = '1wQro5cHjKZp1pQpLNazyZe2w-3bRNwRFnbQvLnU5Pio6AN1Yc2E2EK4RnU2AG5i';
+const token = '1wQro5cHjKZp1pQpLNazyZe2w-3bRNwRFnbQvLnU5Pio6AN1Yc2E2EK4RnU2AG5i';
 
+const options = {
+    method: 'GET',
+    headers: {
+        'Authorization': `Bearer ${token}`
+    }
+}
+fetch('https://api.genius.com/artists/264991/', options).then(
+    (response) => {
+        if (response.ok) {
+            //const result = response.body;
+            //console.log(result, "result");
+            response.json().then((data) => console.log(data, "Data"))
+        } else {
+            console.log("what")
+        }
+    }
+)
+    .catch((e) => console.log("error is", e));
